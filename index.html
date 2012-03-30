@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>At Guelph</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script type="text/javascript">
+      function parseRss(url, callback) {
+        $.ajax({
+          url: document.location.protocol +
+            '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&num=-1&q=' +
+            encodeURIComponent(url),
+          dataType: 'json',
+          success: function(data) {
+            callback(data.responseData.feed);
+          }
+        });
+      }
+
+      function logRssTitle(feed) {
+        console.log(feed.title);
+        var news_header = $('#guelph_news');
+        news_header.text(feed.title);
+        $.each($(feed.entries).get().reverse(), function(index, value) {
+            console.log(value);
+            $('<li><a href="' + value.link + '">' + value.contentSnippet + '</a></li>').insertAfter(news_header);
+        });
+        news_header.parent().listview('refresh');
+      }
+
+      $(document).ready(function() {
+          console.log("Hello");
+          parseRss('http://feeds.feedburner.com/uoguelph', logRssTitle);
+          console.log("Hello");
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-theme="b" data-role="header" data-position="fixed">
+        <h1>At Guelph</h1>
+        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+     </div>
+
+      <div data-role="content">
+        <div class="content-primary">
+          <ul data-role="listview">
+            <li id="guelph_events" data-role="list-divider">Events</li>
+            <li id="guelph_news" data-role="list-divider">News</li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-theme="b" data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="navbar-icons">
+          <ul>
+            <li><a href="courselink.html" id="courselink" data-icon="custom">Courselink</a></li>
+            <li><a href="map.html" id="map" data-icon="custom">Map</a></li>
+            <li><a href="index.html" id="connect" data-icon="custom"
+              class="ui-btn-active ui-state-persist">Connect</a></li>
+            <li><a href="email.html" id="email" data-icon="custom">Email</a></li>
+            <li><a href="mealplan.html" id="mealplan" data-icon="custom">Meal Plan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
