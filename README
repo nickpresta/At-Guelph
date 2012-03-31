@@ -1,8 +1,1 @@
-*At Guelph*
-
-To run:
-  From this directory: python -m SimpleHTTPServer
-  Open your browser to http://localhost:8000/index.html
-
-Only tested on Linux running from Python server. Doesn't yet run locally (just the HTML file).
-I have to investigate this.
+A mobile implementation of At Guelph using jQuery Mobile (1.1) and Sencha Touch (2.0).

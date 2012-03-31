@@ -1,0 +1,49 @@
+/* Create space for icons (see below) */
+.navbar-icons .ui-btn .ui-btn-inner {
+  padding-top: 40px !important;
+}
+.navbar-icons .ui-btn .ui-icon {
+  width: 30px !important;
+  height: 30px !important;
+  margin-left: -15px !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Glyphish Icons */
+#courselink .ui-icon {
+  background: url("../icons/69-display.png") 50% 50% no-repeat;
+  background-size: 22px 20px;
+}
+#map .ui-icon {
+  background: url("../icons/07-map-marker.png") 50% 50% no-repeat;
+  background-size: 16px 26px;
+}
+#connect .ui-icon {
+  background: url("../icons/140-gradhat.png") 50% 50% no-repeat;
+  background-size: 30px 23px;
+}
+#email .ui-icon {
+  background: url("../icons/18-envelope.png") 50% 50% no-repeat;
+  background-size: 24px 16px;
+}
+#mealplan .ui-icon {
+  background: url("../icons/80-shopping-cart.png") 50% 50% no-repeat;
+  background-size: 26px 19px;
+}
+
+/* List styles */
+.ui-li .ui-btn-text a.ui-link-inherit * {
+  white-space: normal !important;
+}
+.ui-li .ui-btn-text {
+  padding-right: 10px;
+}
+
+/* Misc */
+#register {
+  display: none;
+}

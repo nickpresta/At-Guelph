@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>At Guelph</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script src="https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
+    <script src="static/js/main.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="page_options" class="dialog-actionsheet">
+      <div data-role="content">
+        <h1>Options</h1>
+        <p>You may choose to enter your central login credentials to gain access to:</p>
+        <ul>
+          <li>Event registration</li>
+          <li>Class/Exam schedule</li>
+          <li>Meal card balance</li>
+        </ul>
+        <p>
+          We store this information entirely on your device (no data is ever sent to our servers).
+          You may delete your data from these fields at any time.
+        </p>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <label for="options_central_login_username">Central Login:</label>
+          <input type="text" id="options_central_login_username" name="options_central_login_username" value=""
+            placeholder="Central Login Username" />
+          <label for="options_central_login_password">Central Login:</label>
+          <input type="password" id="options_central_login_password" name="options_central_login_password" value=""
+            placeholder="Central Login Password" />
+        </div>
+        <a href="index.html" id="options_save" data-role="button" data-theme="b" data-rel="back">Save</a>
+      </div>
+    </div>
+  </body>
+</html>
