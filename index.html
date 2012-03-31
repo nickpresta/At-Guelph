@@ -10,49 +10,23 @@
     <link rel="stylesheet" href="/static/css/style.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-    <script type="text/javascript">
-      function parseRss(url, callback) {
-        $.ajax({
-          url: document.location.protocol +
-            '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&num=-1&q=' +
-            encodeURIComponent(url),
-          dataType: 'json',
-          success: function(data) {
-            callback(data.responseData.feed);
-          }
-        });
-      }
-
-      function logRssTitle(feed) {
-        console.log(feed.title);
-        var news_header = $('#guelph_news');
-        news_header.text(feed.title);
-        $.each($(feed.entries).get().reverse(), function(index, value) {
-            console.log(value);
-            $('<li><a href="' + value.link + '">' + value.contentSnippet + '</a></li>').insertAfter(news_header);
-        });
-        news_header.parent().listview('refresh');
-      }
-
-      $(document).ready(function() {
-          console.log("Hello");
-          parseRss('http://feeds.feedburner.com/uoguelph', logRssTitle);
-          console.log("Hello");
-      });
-    </script>
+    <script src="https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
+    <script src="/static/js/main.js"></script>
   </head>
   <body>
-    <div data-role="page">
+    <div data-role="page" id="page_connect">
       <div data-theme="b" data-role="header" data-position="fixed">
         <h1>At Guelph</h1>
-        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+        <a href="options.html" id="options" class="ui-btn-right"
+          data-rel="dialog" data-icon="gear">Options</a>
      </div>
 
       <div data-role="content">
         <div class="content-primary">
-          <ul data-role="listview">
-            <li id="guelph_events" data-role="list-divider">Events</li>
-            <li id="guelph_news" data-role="list-divider">News</li>
+          <ul data-role="listview" id="news_events_list">
+            <li id="events_header" data-role="list-divider" />
+            <li id="news_main_header" data-role="list-divider" />
+            <!--<li id="news_atguelph_header" data-role="list-divider" />-->
           </ul>
         </div>
       </div>

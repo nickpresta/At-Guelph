@@ -36,9 +36,14 @@
 }
 
 /* List styles */
-.ui-li .ui-btn-text a.ui-link-inherit {
+.ui-li .ui-btn-text a.ui-link-inherit * {
   white-space: normal !important;
 }
 .ui-li .ui-btn-text {
   padding-right: 10px;
+}
+
+/* Misc */
+#register {
+  display: none;
 }
